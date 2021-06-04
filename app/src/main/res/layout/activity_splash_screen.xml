@@ -15,7 +15,7 @@
         android:layout_centerVertical="true"
         android:backgroundTint="@color/black"
         android:scaleType="center"
-        android:src="@drawable/halaman_utama" />
+        android:src="@drawable/ic_halaman_utama" />
 
     <TextView
         android:layout_width="match_parent"
