@@ -16,9 +16,5 @@
         android:id="@+id/navigation_profile"
         android:icon="@drawable/ic_baseline_accessibility_24"
         android:title="Profile" />
-
-    <item
-        android:id="@+id/navigation_about"
-        android:icon="@drawable/ic_baseline_info_24"
-        android:title="About" />
+    
 </menu>

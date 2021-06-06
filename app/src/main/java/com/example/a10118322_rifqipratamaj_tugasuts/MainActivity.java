@@ -1,3 +1,8 @@
+// Tanggal Pengerjaan : 1 Juni 2021
+// NIM : 10118322
+// Nama : Rifqi Pratama Juliansyah
+// Kelas : IF-8
+
 package com.example.a10118322_rifqipratamaj_tugasuts;
 
 import androidx.annotation.NonNull;
@@ -36,14 +41,11 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.navigation_home:
                         selectedFragment = new HomeFragment();
                         break;
-                    case R.id.navigation_about:
-                        selectedFragment = new AboutFragment();
+                    case R.id.navigation_input:
+                        selectedFragment = new InputFragment();
                         break;
                     case R.id.navigation_profile:
                         selectedFragment = new ProfileFragment();
-                        break;
-                    case R.id.navigation_input:
-                        selectedFragment = new InputFragment();
                 }
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragmen_container,
                         selectedFragment).commit();

@@ -1,3 +1,8 @@
+// Tanggal Pengerjaan : 2 Juni 2021
+// NIM : 10118322
+// Nama : Rifqi Pratama Juliansyah
+// Kelas : IF-8
+
 package com.example.a10118322_rifqipratamaj_tugasuts;
 
 import android.text.Layout;
@@ -9,28 +14,30 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import org.w3c.dom.Text;
+
 import java.util.List;
 
-public class CatatanAdapter extends RecyclerView.Adapter<CatatanAdapter.CatatanViewHolder> {
+public class CatatanAdapter extends RecyclerView.Adapter {
 
     private List<Catatan> catatanList;
 
     public CatatanAdapter(List<Catatan> catatanList) {
         this.catatanList = catatanList;
-
     }
 
-    @NonNull
     @Override
-    public CatatanViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View view = inflater.inflate(R.layout.items, null, false);
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.items, parent, false);
+
         return new CatatanViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CatatanViewHolder holder, int position) {
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+        Catatan catatan = catatanList.get(position);
 
+        ((CatatanViewHolder) holder).bindView(catatan);
     }
 
     @Override
@@ -38,17 +45,34 @@ public class CatatanAdapter extends RecyclerView.Adapter<CatatanAdapter.CatatanV
         return catatanList.size();
     }
 
-    public class CatatanViewHolder extends RecyclerView.ViewHolder {
+    private class CatatanViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+
         private TextView tv_date;
         private TextView tv_title;
+        private TextView tv_category;
         private TextView tv_description;
 
-        public CatatanViewHolder(@NonNull View itemView) {
+        public CatatanViewHolder(View itemView) {
             super(itemView);
 
-            tv_date = itemView.findViewById(R.id.tv_date);
-            tv_title = itemView.findViewById(R.id.tv_title);
-            tv_description = itemView.findViewById(R.id.tv_description);
+            tv_date = (TextView) itemView.findViewById(R.id.tv_date);
+            tv_title = (TextView) itemView.findViewById(R.id.tv_title);
+            tv_category = (TextView) itemView.findViewById(R.id.tv_category);
+            tv_description = (TextView) itemView.findViewById(R.id.tv_description);
+
+            itemView.setOnClickListener(this);
+        }
+
+        public void bindView(Catatan catatan) {
+            tv_date.setText(catatan.getDate());
+            tv_title.setText(catatan.getTitle());
+            tv_category.setText(catatan.getCategory());
+            tv_description.setText(catatan.getDescription());
+        }
+
+        @Override
+        public void onClick(View view) {
+
         }
     }
 }

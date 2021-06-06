@@ -23,7 +23,8 @@
         android:layout_marginTop="40dp"
         android:textColor="@color/black"
         android:textSize="20sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:textColorHint="@color/primary"/>
 
     <TextView
         android:id="@+id/viewpager_description"
@@ -31,5 +32,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:textColor="@color/black"
-        android:textSize="15sp"/>
+        android:textSize="15sp"
+        android:gravity="center"/>
 </LinearLayout>

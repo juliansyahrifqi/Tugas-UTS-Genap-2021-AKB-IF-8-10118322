@@ -1,3 +1,8 @@
+// Tanggal Pengerjaan : 2 Juni 2021
+// NIM : 10118322
+// Nama : Rifqi Pratama Juliansyah
+// Kelas : IF-8
+
 package com.example.a10118322_rifqipratamaj_tugasuts;
 
 import android.content.Context;
@@ -9,7 +14,7 @@ public class CatatanImp extends SQLiteOpenHelper implements CatatanInterface {
 
     public static String DB_NAME = "db_catatan";
 
-    private static final int DB_VERSION = 1;
+    private static final int DB_VERSION = 3;
 
     public CatatanImp(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -17,12 +22,12 @@ public class CatatanImp extends SQLiteOpenHelper implements CatatanInterface {
 
     @Override
     public void onCreate(SQLiteDatabase sql) {
-        sql.execSQL("CREATE TABLE tbl_catatan (id TEXT, date TEXT, title TEXT, description TEXT)");
+        sql.execSQL("CREATE TABLE tbl_catatan (id TEXT, date TEXT, title TEXT, category TEXT, description TEXT)");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sql, int i, int j) {
-        sql.execSQL("DROP TABLE tbl_catatan");
+        sql.execSQL("DROP TABLE IF EXISTS tbl_catatan");
     }
 
     @Override
@@ -34,14 +39,14 @@ public class CatatanImp extends SQLiteOpenHelper implements CatatanInterface {
     @Override
     public boolean create(Catatan catatan) {
         SQLiteDatabase sql = getWritableDatabase();
-        sql.execSQL("INSERT INTO tbl_catatan VALUES ('"+catatan.getId()+"','"+catatan.getDate()+"','"+catatan.getTitle()+"', '"+catatan.getDescription()+"')");
+        sql.execSQL("INSERT INTO tbl_catatan VALUES ('"+catatan.getId()+"','"+catatan.getDate()+"','"+catatan.getTitle()+"', '"+catatan.getCategory()+"', '"+catatan.getDescription()+"')");
         return true;
     }
 
     @Override
     public boolean update(Catatan catatan) {
         SQLiteDatabase sql = getWritableDatabase();
-        sql.execSQL("UPDATE tbl_catatan SET date = '"+catatan.getDate()+"','"+catatan.getTitle()+"','"+catatan.getDescription()+"' WHERE id='"+catatan.getId()+"'");
+        sql.execSQL("UPDATE tbl_catatan SET date = '"+catatan.getDate()+"','"+catatan.getTitle()+"','"+catatan.getCategory()+"','"+catatan.getDescription()+"' WHERE id='"+catatan.getId()+"'");
         return true;
     }
 

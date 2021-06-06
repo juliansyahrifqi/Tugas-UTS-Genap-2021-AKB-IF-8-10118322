@@ -1,3 +1,8 @@
+// Tanggal Pengerjaan : 1 Juni 2021
+// NIM : 10118322
+// Nama : Rifqi Pratama Juliansyah
+// Kelas : IF-8
+
 package com.example.a10118322_rifqipratamaj_tugasuts;
 
 import android.database.Cursor;
@@ -9,37 +14,40 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.zip.Inflater;
 
 public class HomeFragment extends Fragment {
 
-    private RecyclerView rv_catatan;
     private List<Catatan> catatanList;
     private CatatanInterface catatanInterface;
     private CatatanAdapter catatanAdapter;
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-
-        read();
-    }
+    private RecyclerView rv_catatan;
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-        rv_catatan = view.findViewById(R.id.rv_catatan);
+
+        rv_catatan = (RecyclerView) view.findViewById(R.id.rv_catatan);
+
+        read();
+
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        rv_catatan.setLayoutManager(layoutManager);
 
         return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        read();
     }
 
     private void read() {
@@ -54,7 +62,8 @@ public class HomeFragment extends Fragment {
                         cursor.getString(0),
                         cursor.getString(1),
                         cursor.getString(2),
-                        cursor.getString(3)
+                        cursor.getString(3),
+                        cursor.getString(4)
                 );
 
                 catatanList.add(catatan);
@@ -65,14 +74,4 @@ public class HomeFragment extends Fragment {
         rv_catatan.setAdapter(catatanAdapter);
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-
-        read();
-    }
-
-    public void onClick(int position) {
-        Catatan catatan = catatanList.get(position);
-    }
 }
