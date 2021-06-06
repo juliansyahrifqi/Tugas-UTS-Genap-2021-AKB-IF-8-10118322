@@ -15,8 +15,7 @@
             android:layout_height="150dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="75dp"
-            android:src="@drawable/profile"
-            />
+            android:src="@drawable/profile" />
     </LinearLayout>
 
     <LinearLayout
@@ -29,54 +28,49 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:text="10118322"
-            android:textSize="20dp"
+            android:text="@string/nim"
+            android:textSize="20sp"
             android:gravity="center_horizontal"
-            android:textColor="@color/black"
-            />
+            android:textColor="@color/black" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Rifqi Pratama Juliansyah"
-            android:textSize="20dp"
+            android:text="@string/nama"
+            android:textSize="20sp"
             android:gravity="center_horizontal"
-            android:textColor="@color/black"
-            />
+            android:textColor="@color/black" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="IF-8"
-            android:textSize="20dp"
+            android:text="@string/kelas"
+            android:textSize="20sp"
             android:gravity="center_horizontal"
-            android:textColor="@color/black"
-            />
+            android:textColor="@color/black" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="rifqi.10118322@mahasiswa.unikom.ac.id"
+            android:text="@string/email_mhs"
             android:textSize="16sp"
             android:gravity="center_horizontal"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
-            android:textColor="@color/black"
-            />
+            android:textColor="@color/black" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="rifqipratama9@gmail.com"
+            android:text="@string/email_pribadi"
             android:textSize="16sp"
             android:gravity="center_horizontal"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
-            android:textColor="@color/black"
-            />
+            android:textColor="@color/black" />
     </LinearLayout>
 </RelativeLayout>
